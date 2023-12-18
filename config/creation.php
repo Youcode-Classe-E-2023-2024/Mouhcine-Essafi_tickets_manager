@@ -2,7 +2,6 @@
 
 include 'connection.php';
 
-$db_name = "Helpdesk";
 $table_Utlisateur = "Utlisateur";
 $table_Ticket = "Ticket";
 $table_Assignement = "Assignement";
@@ -10,19 +9,6 @@ $table_Commentaire = "Commentaire";
 $table_Statut = "Statut";
 $table_Tag = "Tag";
 
-/**
- * SQL query to create a database
- */
-$sql = "CREATE DATABASE IF NOT EXISTS $db_name";
-
-if (!$conn->query($sql) === TRUE) {
-    echo "Error creating database: " . $conn->error;
-}
-
-/**
- * Select your database
- */
-$conn->select_db($db_name);
 
 /**
  * create tables
