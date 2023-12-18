@@ -4,14 +4,9 @@ class UserLogin
 {
     private $db;
 
-    public function __construct($host, $username, $password, $database)
+    public function __construct($db)
     {
-        // Establish a MySQLi connection
-        $this->db = new mysqli($host, $username, $password, $database);
-
-        if ($this->db->connect_error) {
-            die('Could not connect: ' . $this->db->connect_error);
-        }
+        $this->db = $db;
     }
 
     public function authenticateUser($username, $password)
@@ -61,23 +56,4 @@ class UserLogin
         return (bool) preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/', $password);
     }
 }
-
-// Example usage:
-
-// Replace these with your actual database connection information
-$host = 'localhost';
-$username = 'root';
-$password = '';
-$database = 'Helpdesk';
-
-$userLogin = new UserLogin($host, $username, $password, $database);
-
-// Example authentication
-$result = $userLogin->authenticateUser('john_doe', 'Password123');
-
-if (is_numeric($result)) {
-    echo "<script>alert('Login successful. User ID: $result');</script>";
-    // Set user session or token for further authentication
-} else {
-    echo "<script>alert('Login failed. Reason: $result');</script>";
-}
+?>
