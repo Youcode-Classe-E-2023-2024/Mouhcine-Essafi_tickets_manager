@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<div id="register" class="min-w-screen min-h-screen bg-gray-900 flex items-center justify-center px-5 py-5">
+<div id="register-form" class="min-w-screen min-h-screen bg-gray-900 flex items-center justify-center px-5 py-5">
     <div class="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden" style="max-width:1000px">
         <div class="md:flex w-full">
             <div class="hidden md:block w-1/2 bg-indigo-500 py-10 px-10">
@@ -62,18 +62,16 @@
                             <button type="submit" name="submit" class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">REGISTER NOW</button>
                         </div>
                     </div>
-                    <div class="text-center">
-						<a class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800" href="#">
-							Already have an account? Login!
-						</a>
-					</div>
+                    <div class="mt-12 text-sm font-display font-semibold text-gray-700 text-center">
+                        Already have an account? <a id="login" class="cursor-pointer text-indigo-600 hover:text-indigo-800"> Login!</a>
+                        </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
 
-<div id="login" class="bg-blue-400 h-screen w-screen">
+<div id="login-form" class="bg-blue-400 h-screen w-screen">
     <div class="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0">
         <div class="flex rounded-lg shadow-lg w-full sm:w-3/4 lg:w-1/2 bg-white sm:mx-0" style="height: 500px">
             <div class="flex flex-col w-full md:w-1/2 p-4">
@@ -108,8 +106,14 @@
 </div>
 
 <script>
-    const form_regist = document.getElementById("register");
-    const form_login = document.getElementById("login");
+    const form_regist = document.getElementById("register-form");
+    const form_login = document.getElementById("login-form");
+    const switch_login = document.getElementById("login");
+    const switch_register = document.getElementById("sign-up");
+    switch_login.addEventListener('click', function () {
+        // Toggle the display property
+            myElement.style.display = 'flex';
+    });
 </script>
 </body>
 </html>
