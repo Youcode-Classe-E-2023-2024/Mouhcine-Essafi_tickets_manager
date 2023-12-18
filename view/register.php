@@ -22,7 +22,7 @@
                     <h1 class="font-bold text-3xl text-gray-900">REGISTER</h1>
                     <p>Enter your information to register</p>
                 </div>
-                <form action="" method="POST">
+                <form action="..\trait\register_trait.php" method="POST">
                     <div class="flex -mx-3">
                         <div class="w-1/2 px-3 mb-5">
                             <label for="" class="text-xs font-semibold px-1">First name</label>
@@ -59,7 +59,7 @@
                     </div>
                     <div class="flex -mx-3">
                         <div class="w-full px-3 mb-5">
-                            <button class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">REGISTER NOW</button>
+                            <button type="submit" name="submit" class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">REGISTER NOW</button>
                         </div>
                     </div>
                 </form>
