@@ -64,8 +64,8 @@ $sql6 = "CREATE TABLE IF NOT EXISTS $table_Assignement (
     FOREIGN KEY (id_assigne) REFERENCES $table_Utlisateur(id_utilisateur)
 )";
 
-if (!$conn->query($sql1) || !$conn->query($sql2) || !$conn->query($sql3) || !$conn->query($sql4) || !$conn->query($sql5) || !$conn->query($sql6)){
-    echo "Error creating table: " . $conn->error;
+if (!$db->query($sql1) || !$db->query($sql2) || !$db->query($sql3) || !$db->query($sql4) || !$db->query($sql5) || !$db->query($sql6)){
+    echo "Error creating table: " . $db->error;
 }
 
 ?>
