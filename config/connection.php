@@ -1,35 +1,57 @@
 <?php
+
+class DatabaseConnection
+{
+    private $db;
+
+    public function __construct($servername, $username, $password, $db_name)
+    {
+        $this->db = new mysqli($servername, $username, $password);
+
+        if ($this->db->connect_error) {
+            die('Could not connect: ' . $this->db->connect_error);
+        }
+
+        $this->CreateDatabase($db_name);
+    }
+
+    private function CreateDatabase($db_name)
+    {
+        $sql = "CREATE DATABASE IF NOT EXISTS $db_name";
+
+        if (!$this->db->query($sql)) {
+            die("Error creating database: " . $this->db->error);
+        }
+
+        // Select the database
+        $this->db->select_db($db_name);
+    }
+
+    public function getConnection()
+    {
+        return $this->db;
+    }
+
+    public function closeConnection()
+    {
+        $this->db->close();
+    }
+}
+
 $servername = "localhost";
 $username = "root";
 $password = "";
 $db_name = "Helpdesk";
 
+// Create a DatabaseConnection instance
+$dbConnection = new DatabaseConnection($servername, $username, $password, $db_name);
 
-/**
- * Create connection (MySQLi Procedural)
- */
-$conn = mysqli_connect($servername, $username, $password);
+// Get the database connection
+$conn = $dbConnection->getConnection();
 
-/**
- * Check connection
- */
-if ($conn->connect_error) {
-    die("Connection failed: " . mysqli_connect_error());
-    echo ('error: ');
-}
+// Perform other database operations using $conn
 
-/**
- * SQL query to create a database
- */
-$sql = "CREATE DATABASE IF NOT EXISTS $db_name";
-
-if (!$conn->query($sql) === TRUE) {
-    echo "Error creating database: " . $conn->error;
-}
-
-/**
- * Select your database
- */
-$conn->select_db($db_name);
+// Close the database connection when done
+// $dbConnection->closeConnection();
 
 ?>
