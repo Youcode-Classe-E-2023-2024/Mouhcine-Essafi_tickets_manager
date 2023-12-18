@@ -9,19 +9,19 @@ class UserRegistration
         $this->db = $db;
     }
 
-    public function registerUser($username, $password)
+    public function registerUser($first_name, $last_name, $email, $password)
     {
         // Validate input data
-        if (!$this->validateUsername($username) || !$this->validatePassword($password)) {
+        if (!$this->validateEmail($email) || empty($first_name) || empty($last_name) || empty($email)) {
             return "Invalid input data";
         }
 
         // Escape input data to prevent SQL injection
-        $username = $this->db->real_escape_string($username);
+        $email = $this->db->real_escape_string($email);
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
         // Check if the username already exists
-        $checkQuery = "SELECT id FROM users WHERE username = '$username'";
+        $checkQuery = "SELECT id_utilisateur FROM Utlisateur WHERE email = '$email'";
         $checkResult = $this->db->query($checkQuery);
 
         if (!$checkResult) {
@@ -33,7 +33,7 @@ class UserRegistration
         }
 
         // Insert new user into the database
-        $insertQuery = "INSERT INTO users (username, password) VALUES ('$username', '$hashedPassword')";
+        $insertQuery = "INSERT INTO Utlisateur (nom, prenom, email, mot_de_passe) VALUES ('$first_name', '$last_name','$email', '$hashedPassword')";
         $insertResult = $this->db->query($insertQuery);
 
         if (!$insertResult) {
@@ -41,13 +41,13 @@ class UserRegistration
         }
 
         // Return success message or user ID, depending on your application needs
-        return "Registration successful for username: $username";
+        return "Registration successful for username: $email";
     }
 
-    private function validateUsername($username)
+    private function validateEmail($email)
     {
-        // Add your own validation rules for the username
-        return (bool) preg_match('/^[a-zA-Z0-9]{5,}$/', $username);
+        // Add your own validation rules for the email address
+        return (bool) filter_var($email, FILTER_VALIDATE_EMAIL);
     }
 
     private function validatePassword($password)
