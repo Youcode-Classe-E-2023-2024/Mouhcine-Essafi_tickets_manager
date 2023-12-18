@@ -47,7 +47,7 @@ $db_name = "Helpdesk";
 $dbConnection = new DatabaseConnection($servername, $username, $password, $db_name);
 
 // Get the database connection
-$conn = $dbConnection->getConnection();
+$db = $dbConnection->getConnection();
 
 // Perform other database operations using $conn
 
