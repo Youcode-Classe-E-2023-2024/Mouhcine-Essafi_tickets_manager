@@ -1,3 +1,9 @@
+<?php
+include '..\config\connection.php';
+include '../trait/login_trait.php';
+include '../trait/register_trait.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +25,7 @@
                     <h1 class="font-bold text-3xl text-gray-900">REGISTER</h1>
                     <p>Enter your information to register</p>
                 </div>
-                <form action="..\trait\register_trait.php" method="POST">
+                <form action="" method="POST">
                     <div class="flex -mx-3">
                         <div class="w-1/2 px-3 mb-5">
                             <label for="" class="text-xs font-semibold px-1">First name</label>
@@ -56,7 +62,7 @@
                     </div>
                     <div class="flex -mx-3">
                         <div class="w-full px-3 mb-5">
-                            <button type="submit" name="submit" class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">REGISTER NOW</button>
+                            <button type="submit" name="submit_r" class="block w-full max-w-xs mx-auto bg-indigo-500 hover:bg-indigo-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-3 font-semibold">REGISTER NOW</button>
                         </div>
                     </div>
                     <div class="text-sm font-display font-semibold text-gray-700 text-center">
@@ -75,7 +81,7 @@
                 <div class="flex flex-col flex-1 justify-center mb-8">
                     <h1 class="text-4xl text-center font-thin">Welcome Back</h1>
                     <div class="w-full mt-4">
-                        <form class="form-horizontal w-3/4 mx-auto" action="..\trait\login_trait.php" method="POST">
+                        <form class="form-horizontal w-3/4 mx-auto" action="" method="POST">
                             <div class="flex flex-col mt-4">
                                 <input type="text" class="flex-grow h-8 px-2 border rounded border-grey-400" name="log_email" placeholder="Email">
                             </div>
@@ -86,7 +92,7 @@
                                 <input type="checkbox" name="remember" id="remember" class="mr-2"> <label for="remember" class="text-sm text-grey-dark">Remember Me</label>
                             </div>
                             <div class="flex flex-col mt-8">
-                                <button name="submit" type="submit" class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-4 rounded">
+                                <button name="submit_l" type="submit" class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-4 rounded">
                                     Login
                                 </button>
                             </div>
