@@ -41,7 +41,7 @@
                             <label for="" class="text-xs font-semibold px-1">Email</label>
                             <div class="flex">
                                 <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-email-outline text-gray-400 text-lg"></i></div>
-                                <input name="email" type="email" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="johnsmith@example.com">
+                                <input name="reg_email" type="email" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="johnsmith@example.com">
                             </div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                             <label for="" class="text-xs font-semibold px-1">Password</label>
                             <div class="flex">
                                 <div class="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-lock-outline text-gray-400 text-lg"></i></div>
-                                <input name="password" type="password" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="************">
+                                <input name="reg_password" type="password" class="w-full -ml-10 pl-10 pr-3 py-2 rounded-lg border-2 border-gray-200 outline-none focus:border-indigo-500" placeholder="************">
                             </div>
                         </div>
                     </div>
@@ -75,18 +75,18 @@
                 <div class="flex flex-col flex-1 justify-center mb-8">
                     <h1 class="text-4xl text-center font-thin">Welcome Back</h1>
                     <div class="w-full mt-4">
-                        <form class="form-horizontal w-3/4 mx-auto" method="POST" action="#">
+                        <form class="form-horizontal w-3/4 mx-auto" action="..\trait\login_trait.php" method="POST">
                             <div class="flex flex-col mt-4">
-                                <input id="email" type="text" class="flex-grow h-8 px-2 border rounded border-grey-400" name="email" value="" placeholder="Email">
+                                <input type="text" class="flex-grow h-8 px-2 border rounded border-grey-400" name="log_email" placeholder="Email">
                             </div>
                             <div class="flex flex-col mt-4">
-                                <input id="password" type="password" class="flex-grow h-8 px-2 rounded border border-grey-400" name="password" required placeholder="Password">
+                                <input type="password" class="flex-grow h-8 px-2 rounded border border-grey-400" name="log_password" required placeholder="Password">
                             </div>
                             <div class="flex items-center mt-4">
                                 <input type="checkbox" name="remember" id="remember" class="mr-2"> <label for="remember" class="text-sm text-grey-dark">Remember Me</label>
                             </div>
                             <div class="flex flex-col mt-8">
-                                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-4 rounded">
+                                <button name="submit" type="submit" class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-4 rounded">
                                     Login
                                 </button>
                             </div>
