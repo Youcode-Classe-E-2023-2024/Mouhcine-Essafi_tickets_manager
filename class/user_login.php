@@ -9,18 +9,16 @@ class UserLogin
         $this->db = $db;
     }
 
-    public function authenticateUser($username, $password)
+    public function loginUser($email, $password)
     {
         // Validate input data
-        if (!$this->validateUsername($username) || !$this->validatePassword($password)) {
+        // !$this->validatePassword($password))
+        if (!$this->validateEmail($email))  {
             return "Invalid input data";
         }
 
-        // Escape input data to prevent SQL injection
-        $username = $this->db->real_escape_string($username);
-
         // Retrieve user data from the database
-        $query = "SELECT id, username, password FROM users WHERE username = '$username'";
+        $query = "SELECT id_utilisateur, mot_de_passe FROM utlisateur WHERE email = '$email'";
         $result = $this->db->query($query);
 
         if (!$result) {
@@ -35,19 +33,19 @@ class UserLogin
         }
 
         // Verify the password
-        if (!password_verify($password, $userData['password'])) {
+        if (!password_verify($password, $userData['mot_de_passe'])) {
             return "Invalid password";
         }
 
         // Set user session or token for authentication
         // For simplicity, we'll just return the user ID in this example
-        return $userData['id'];
+        return $userData['id_utilisateur'];
     }
 
-    private function validateUsername($username)
+    private function validateEmail($email)
     {
-        // Add your own validation rules for the username
-        return (bool) preg_match('/^[a-zA-Z0-9]{5,}$/', $username);
+        // Add your own validation rules for the email address
+        return (bool) filter_var($email, FILTER_VALIDATE_EMAIL);
     }
 
     private function validatePassword($password)
