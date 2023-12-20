@@ -39,7 +39,8 @@ class UserLogin
 
         // Set user session or token for authentication
         // For simplicity, we'll just return the user ID in this example
-        return $userData['id_utilisateur'];
+        // return $userData['id_utilisateur'];
+        return true;
     }
 
     private function validateEmail($email)
