@@ -2,6 +2,7 @@
 include '..\config\connection.php';
 include '../trait/login_trait.php';
 include '../trait/register_trait.php';
+// echo "<script>alert('$registrationResult');</script>";
 ?>
 
 <!DOCTYPE html>
